@@ -32,12 +32,6 @@ public class Main extends JFrame{
 	private JLabel txt;
 	private JPanel panel;
 	
-	/* Panel */
-	JPanel centerPanel = new JPanel(new BorderLayout());
-	JPanel westPanel = new JPanel();
-	JPanel eastPanel = new JPanel();
-	JPanel southPanel = new JPanel();
-	
 	/* Label */
 	JLabel idL = new JLabel("아이디");
 	JLabel pwL = new JLabel("비밀번호");

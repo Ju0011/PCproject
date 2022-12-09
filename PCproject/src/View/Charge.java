@@ -17,6 +17,10 @@ import javax.swing.JRadioButton;
 
 public class Charge extends JFrame implements  ItemListener{
 	JPanel panel = new JPanel();
+	
+	JPanel centerPanel = new JPanel();
+	JPanel centerPanel_2 = new JPanel();
+	
 	BufferedImage img = null;
 	JButton button = new JButton("충전하기");
 	
@@ -77,53 +81,55 @@ public class Charge extends JFrame implements  ItemListener{
         button.setBounds(700, 600, 250, 100);
         button.setFont(new Font("배달의민족 한나", Font.BOLD, 35));
         panel.add(button);
-        
-       
-        
-        if(check) {
-        	
-    		m_b1.setBounds(200, 200, 150, 100);
-            m_b1.setFont(font_2);
-            panel.add(m_b1);
-            
-            m_b2.setBounds(200, 350, 150, 100);
-            m_b2.setFont(font_2);
-            panel.add(m_b2);
-            
-            m_b3.setBounds(200, 500, 150, 100);
-            m_b3.setFont(font_2);
-            panel.add(m_b3);
-            
-            m_b4.setBounds(500, 200, 150, 100);
-            m_b4.setFont(font_2);
-            panel.add(m_b4);
-            
-            m_b5.setBounds(500, 350, 150, 100);
-            m_b5.setFont(font_2);
-            panel.add(m_b5);
-        }
-        else {
-        	b1.setBounds(200, 200, 150, 100);
-            b1.setFont(font_2);
-            panel.add(b1);
-            
-            b2.setBounds(200, 350, 150, 100);
-            b2.setFont(font_2);
-            panel.add(b2);
-            
-            b3.setBounds(200, 500, 150, 100);
-            b3.setFont(font_2);
-            panel.add(b3);
-            
-            b4.setBounds(500, 200, 150, 100);
-            b4.setFont(font_2);
-            panel.add(b4);
-            
-            b5.setBounds(500, 350, 150, 100);
-            b5.setFont(font_2);
-            panel.add(b5);
-        }
-        
+
+		m_b1.setBounds(200, 200, 150, 100);
+		m_b1.setFont(font_2);
+		centerPanel.add(m_b1);
+
+		m_b2.setBounds(200, 350, 150, 100);
+		m_b2.setFont(font_2);
+		centerPanel.add(m_b2);
+
+		m_b3.setBounds(200, 500, 150, 100);
+		m_b3.setFont(font_2);
+		centerPanel.add(m_b3);
+
+		m_b4.setBounds(500, 200, 150, 100);
+		m_b4.setFont(font_2);
+		centerPanel.add(m_b4);
+
+		m_b5.setBounds(500, 350, 150, 100);
+		m_b5.setFont(font_2);
+		centerPanel.add(m_b5);
+
+		b1.setBounds(200, 200, 150, 100);
+		b1.setFont(font_2);
+		centerPanel_2.add(b1);
+
+		b2.setBounds(200, 350, 150, 100);
+		b2.setFont(font_2);
+		centerPanel_2.add(b2);
+
+		b3.setBounds(200, 500, 150, 100);
+		b3.setFont(font_2);
+		centerPanel_2.add(b3);
+
+		b4.setBounds(500, 200, 150, 100);
+		b4.setFont(font_2);
+		centerPanel_2.add(b4);
+
+		b5.setBounds(500, 350, 150, 100);
+		b5.setFont(font_2);
+		centerPanel_2.add(b5);
+		
+		centerPanel.setLayout(null);
+		centerPanel.setBounds(0, 0, 900, 800);
+		centerPanel_2.setLayout(null);
+		centerPanel_2.setBounds(0, 0, 900, 800);
+		
+		
+		panel.add(centerPanel);
+		panel.add(centerPanel_2);
 
         MyPanel img_panel = new MyPanel();
 		img_panel.setLayout(null);
@@ -137,7 +143,14 @@ public class Charge extends JFrame implements  ItemListener{
 			System.exit(0);
 		}
 		
-		
+		if (check == true) {
+			centerPanel.setVisible(true);
+			centerPanel_2.setVisible(false);
+		} else {
+			centerPanel.setVisible(false);
+			centerPanel_2.setVisible(true);
+		}
+	
 		add(panel);
 		setVisible(true);
 		setResizable(false);
@@ -160,6 +173,9 @@ public class Charge extends JFrame implements  ItemListener{
 	public void itemStateChanged(ItemEvent e) {
 		if(e.getSource() == rd2){
 			check = false;
+		}
+		else if(e.getSource() == rd1) {
+			check = true;
 		}
 		
 	}
