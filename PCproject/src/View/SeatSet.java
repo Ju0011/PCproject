@@ -22,9 +22,10 @@ public class SeatSet extends JFrame {
     
     public SeatSet() {
         setLayout(null);
-        setVisible(true);
+        setVisible(false);
         setTitle("좌석창");
         setSize(1400, 800);
+        setResizable(false);
         
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocation(80, 20); //패널 시작 지점

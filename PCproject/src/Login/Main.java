@@ -1,9 +1,10 @@
 package Login;
 
+import View.SeatSet;
+
 import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -11,7 +12,6 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import java.awt.Graphics;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,8 +20,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import Login.Login.ButtonListener;
-
 public class Main extends JFrame{
 	
 	BufferedImage img = null;
@@ -29,6 +27,7 @@ public class Main extends JFrame{
 	Data data = null;
 	Login login = null;
 	public Join join = null;
+	SeatSet seat = null;
 	
 	private JLabel txt;
 	private JPanel panel;
@@ -56,6 +55,7 @@ public class Main extends JFrame{
 	public Main() {
 		setTitle("SK PC");
 		setSize(1400, 800);
+		setLocation(80, 20); //패널 시작 지점
 		setLayout(null);
 		
 		panel = new JPanel();
@@ -156,6 +156,8 @@ public class Main extends JFrame{
 				else if(uid != null && upass != null) {
 					if(data.logincheck(uid, upass)) {	//데이터베이스에 접속해 로그인 정보를 확인
 						JOptionPane.showMessageDialog(null, "로그인에 성공하였습니다");
+						seat.setVisible(true);
+						
 					} else {
 						JOptionPane.showMessageDialog(null, "로그인에 실패하였습니다");
 					}
@@ -176,6 +178,7 @@ public class Main extends JFrame{
 		main.data = new Data();
 //		main.login = new Login(main);
 		main.join = new Join(main);
+		main.seat = new SeatSet();
 	}
 	
 }
