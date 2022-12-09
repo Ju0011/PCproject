@@ -1,41 +1,46 @@
 package View;
 
-import java.awt.Component;
-import java.awt.Rectangle;
-import java.lang.reflect.Field;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.awt.Color;
 
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 
-
 public class SeatSet extends JFrame {
-	private JPanel panel = new JPanel();
-	
-	int x, y;
-	NullSeat[] seat = new NullSeat[16];
-	
-	public SeatSet() {
-		setLayout(null);
+	public JLayeredPane layeredPane = new JLayeredPane();
+    
+    int x, y;
+    NullSeat[] seat = new NullSeat[16];
+    
+    
+    NullSeat seat1 = new NullSeat(0);
+    NullSeat seat2 = new NullSeat(1);
+    NullSeat seat3 = new NullSeat(2);
+    NullSeat seat4 = new NullSeat(3);
+    NullSeat seat5 = new NullSeat(4);
+    
+    public SeatSet() {
+        setLayout(null);
         setVisible(true);
         setTitle("좌석창");
         setSize(1400, 800);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         
-        for (int i = 0; i < 16; i++) {
-        	seat[i] = new NullSeat(i);
-        	seat[i].setBounds(i*100+30, i*100+30 ,99 ,99);
-        	panel.add(seat[i]);
-        }
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocation(80, 20); //패널 시작 지점
+        
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.setBounds(0, 0, 1400, 800);
+        panel.setBackground(new Color(131, 220, 183));
+        
+        seat1.setBounds(50, 50, 99, 99);
+        panel.add(seat1);
         add(panel);
-	}
-	
-//	public static void main(String[] args) throws Exception {
-//    	new SeatSet();
-// 
-//    }
+    }
+
+	public static void main(String[] args) throws Exception {
+    	new SeatSet();
+    }
+ 
 }

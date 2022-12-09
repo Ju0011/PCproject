@@ -21,7 +21,7 @@ public class NullSeat extends JPanel {
      
     public NullSeat(int numSeat) {
         this.numSeat = numSeat;
-        img("gameOff");
+        img("seat");
         setLayout(null);
  
         JPanel panImg = new InnerPanel();
@@ -62,14 +62,14 @@ public class NullSeat extends JPanel {
         setFocusable(true);
     }
  
-    public static void main(String[] args) {
-        JFrame frameTest = new JFrame();
-        frameTest.setTitle("좌석패널");
-        frameTest.add(new NullSeat(1));
-        frameTest.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frameTest.setSize(99, 144);
-        frameTest.setVisible(true);
-    }
+//    public static void main(String[] args) {
+//        JFrame frameTest = new JFrame();
+//        frameTest.setTitle("좌석패널");
+//        frameTest.add(new NullSeat(1));
+//        frameTest.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frameTest.setSize(99, 144);
+//        frameTest.setVisible(true);
+//    }
  
     class InnerPanel extends JPanel {
         private static final long serialVersionUID = 1547128190348749556L;	//값 지정해주기, 컴파일러가 임의로 지정하지 않게 하기 위해서
@@ -82,9 +82,9 @@ public class NullSeat extends JPanel {
     public void img(String filename) {
         // 이미지 받아오기 - gameOn, gameOff (로그인, 로그오프)
         try {
-            img = ImageIO.read(new File("src/img/seat.png"));
+            img = ImageIO.read(new File("src/img/"+filename+".png"));
         } catch (IOException e) {
-            System.out.println("이미지 불러오기 실패!");
+            System.out.println("이미지 실패");
             System.exit(0);
         }
         repaint();

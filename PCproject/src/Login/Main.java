@@ -3,7 +3,7 @@ package Login;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -64,7 +64,7 @@ public class Main extends JFrame{
 		add(panel);
 		
 		txt = new JLabel("어서오세요. SK PC방 입니다!");
-		txt.setFont(txt.getFont().deriveFont(30.0f));
+		txt.setFont(new Font("배달의민족 한나", 1, 40));
 		txt.setBounds(300, 30, 800, 300);
 		panel.add(txt);
 		
