@@ -166,7 +166,7 @@ public class Main extends JFrame{
 		}
 	}
 
-	class MyPanel extends JPanel {
+	public class MyPanel extends JPanel {
         public void paint(Graphics g) {
             g.drawImage(img, 0, 0, null);
         }
