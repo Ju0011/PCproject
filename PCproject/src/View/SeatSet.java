@@ -6,9 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-
 public class SeatSet extends JFrame {
-	public JLayeredPane layeredPane = new JLayeredPane();
     
     int x, y;
     NullSeat[] seat = new NullSeat[16];
