@@ -3,32 +3,31 @@ package View;
 import java.awt.Color;
 
 import javax.swing.JFrame;
-import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 public class SeatSet extends JFrame {
     
     int x, y;
+    JPanel panel =  new JPanel();
     NullSeat[] seat = new NullSeat[16];
     
     
     NullSeat seat1 = new NullSeat(0);
-    NullSeat seat2 = new NullSeat(1);
-    NullSeat seat3 = new NullSeat(2);
-    NullSeat seat4 = new NullSeat(3);
-    NullSeat seat5 = new NullSeat(4);
+//    NullSeat seat2 = new NullSeat(1);
+//    NullSeat seat3 = new NullSeat(2);
+//    NullSeat seat4 = new NullSeat(3);
+//    NullSeat seat5 = new NullSeat(4);
     
     public SeatSet() {
         setLayout(null);
-        setVisible(false);
+        setVisible(true);
         setTitle("좌석창");
         setSize(1400, 800);
         setResizable(false);
         
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocation(80, 20); //패널 시작 지점
+        setLocation(80, 20); //창 시작 지점
         
-        JPanel panel = new JPanel();
         panel.setLayout(null);
         panel.setBounds(0, 0, 1400, 800);
         panel.setBackground(new Color(131, 220, 183));
