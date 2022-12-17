@@ -1,18 +1,17 @@
-package ServerChat;
+package ChatServerTest;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-// ServerThread 클래스 생성 → 서버에서 각 클라이언트의 요청을 처리할 스레드
-class ServerThread2 extends Thread {
+class ServerThread extends Thread {
 
     // 클라이언트 소켓 저장
     Socket s;
 
     // ChatGUIServer 클래스의 객체를 멤버 변수로 선언, has-a 관계를 위함
-    ServerServer cg;
+    Server cg;
 
     // 입출력
     BufferedReader br;
@@ -25,7 +24,7 @@ class ServerThread2 extends Thread {
     String name;
 
     // 생성자
-    public ServerThread2(ServerServer cg, Socket s) {
+    public ServerThread(Server cg, Socket s) {
         /* cg = new ChatGUIServer(); → 작성 불가, 서버가 두 번 가동되기 때문에 충돌이 일어남
         따라서 매개변수를 이용해서 객체를 얻어온(call by reference) 뒤에 cg와 s값을 초기화해야 함
         */

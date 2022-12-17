@@ -30,9 +30,7 @@ public class TestJoin extends JFrame {
 	
 	
 	
-	TestJoin() {
-		
-		
+	TestJoin() {	
 		
 		setTitle("회원가입");
 		

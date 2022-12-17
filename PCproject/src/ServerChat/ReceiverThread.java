@@ -19,7 +19,7 @@ public class ReceiverThread extends Thread{
 				if(str == null) {
 					break;
 				}
-				System.out.println("수식> " + str);
+				System.out.println("수신> " + str);
 			}
 		}catch (Exception e) {
 			System.out.println(e.getMessage());

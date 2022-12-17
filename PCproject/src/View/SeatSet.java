@@ -7,20 +7,20 @@ import javax.swing.JPanel;
 
 public class SeatSet extends JFrame {
     
-    int x, y;
+    int x = 50, y = 50;
     JPanel panel =  new JPanel();
-    NullSeat[] seat = new NullSeat[16];
+    //NullSeat[] seat = new NullSeat[16]; 배열 시도중
     
     
     NullSeat seat1 = new NullSeat(0);
-//    NullSeat seat2 = new NullSeat(1);
-//    NullSeat seat3 = new NullSeat(2);
-//    NullSeat seat4 = new NullSeat(3);
-//    NullSeat seat5 = new NullSeat(4);
+    NullSeat seat2 = new NullSeat(1);
+    NullSeat seat3 = new NullSeat(2);
+    NullSeat seat4 = new NullSeat(3);
+    NullSeat seat5 = new NullSeat(4);
     
     public SeatSet() {
         setLayout(null);
-        setVisible(true);
+        setVisible(false);	//로그인 창에서 뜨지 않기 위해
         setTitle("좌석창");
         setSize(1400, 800);
         setResizable(false);
@@ -34,6 +34,9 @@ public class SeatSet extends JFrame {
         
         seat1.setBounds(50, 50, 99, 99);
         panel.add(seat1);
+        
+
+        
         add(panel);
     }
 

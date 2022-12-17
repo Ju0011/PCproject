@@ -22,10 +22,8 @@ import javax.swing.JTextField;
 
 public class Main extends JFrame{
 	
-	BufferedImage img = null;
-	
+	BufferedImage img = null;	
 	Data data = null;
-	Login login = null;
 	public Join join = null;
 	SeatSet seat = null;
 	
@@ -170,7 +168,6 @@ public class Main extends JFrame{
 		
 		Main main = new Main();
 		main.data = new Data();
-//		main.login = new Login(main);
 		main.join = new Join(main);
 		main.seat = new SeatSet();
 	}

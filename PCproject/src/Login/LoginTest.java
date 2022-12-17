@@ -25,9 +25,10 @@ import Login.Login.ButtonListener;
 public class LoginTest extends JFrame{
 	
 	BufferedImage img = null;
-	
+
 	Data data = null;
 	public TestJoin join = null;
+	
 	private JLabel txt;
 	private JPanel panel;
 	
@@ -166,6 +167,10 @@ public class LoginTest extends JFrame{
         public void paint(Graphics g) {
             g.drawImage(img, 0, 0, null);
         }
+	}
+	public static void main(String[] args) {
+		LoginTest log = new LoginTest();
+		log.data = new Data();
 	}
 	
 	
