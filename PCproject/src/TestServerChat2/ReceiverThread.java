@@ -1,4 +1,4 @@
-package TestServerChat;
+package TestServerChat2;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class ReceiverThread extends Thread{
 	      String receiveString;
 	      while (true) {
 	        receiveString = stream.readUTF();
-	        System.out.println("상대방 : " + receiveString);
+	        System.out.println("B : " + receiveString);
 	      }
 	    } catch (SocketException e1) {
 	      System.out.println("상대방 연결이 종료되었습니다.");

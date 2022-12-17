@@ -56,7 +56,7 @@ public class Client extends JFrame implements ActionListener, Runnable {
 		
 		try {
 			//접속 서버 IP 주소, 서버 포트 번호
-			s = new Socket("192.168.0.32", 4448);
+			s = new Socket("192.168.0.107", 4438);
 			System.out.println("s>>>" + s);
 
 			// ========== Server와 Stream 연결 ===========

@@ -22,7 +22,7 @@ public class Server {
         v = new Vector();
 
         try {
-            ss = new ServerSocket(4448);
+            ss = new ServerSocket(4428);
             System.out.println("ss>>>" + ss);
             System.out.println("채팅 서버 가동중...");
 

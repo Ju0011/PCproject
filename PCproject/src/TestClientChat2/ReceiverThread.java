@@ -1,4 +1,4 @@
-package TestClientChat;
+package TestClientChat2;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -16,13 +16,13 @@ public class ReceiverThread extends Thread{
 	  @Override
 	  public void run() {
 	    try {
-	      DataInputStream tmpbuf = new DataInputStream(socket.getInputStream());
+	      DataInputStream input = new DataInputStream(socket.getInputStream());
 	      while (true) {
-	        receiveString = tmpbuf.readUTF();
+	        receiveString = input.readUTF();
 	        if (receiveString == null) {
 	          System.out.println("상대방 연결이 종료되었습니다.");
 	        } else {
-	          System.out.println("상대방 : " + receiveString);
+	          System.out.println("A : " + receiveString);
 	        }
 	      }
 	    } catch (IOException e) {
