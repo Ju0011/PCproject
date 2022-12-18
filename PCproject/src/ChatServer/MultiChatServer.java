@@ -146,7 +146,7 @@ public class MultiChatServer {
 
 		try {
 
-			server = new ServerSocket(3001);
+			server = new ServerSocket(3201);
 
 			while (true) {
 

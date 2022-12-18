@@ -188,7 +188,7 @@ public class MultiChatClient {
 
 		try {
 
-			socket = new Socket("192.168.0.107", 3001);
+			socket = new Socket("192.168.0.107", 3201);
 
 			System.out.println("연결성공!");
 

@@ -6,7 +6,9 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
- 
+import java.time.Duration;
+import java.time.LocalTime;
+
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -32,6 +34,7 @@ public class NullSeat extends JPanel {
         JPanel panContent = new JPanel();
         panContent.setLayout(null);
         panContent.setBounds(0, 0, 99, 99);
+        
         int posLabel = 15;
         for (int i = 0; i < 4; i++) {
             if (i == 0)
@@ -45,7 +48,7 @@ public class NullSeat extends JPanel {
             label[i].setFont(new Font("배달의민족 한나", 1, 12));
             panContent.add(label[i]);
         }
-        panContent.setOpaque(false);
+        panContent.setOpaque(false);	//배경색 죽이기
          
          
         //제이레이어패널 - 패널간에 순서 지정가능
@@ -60,6 +63,19 @@ public class NullSeat extends JPanel {
         setVisible(true);
         setOpaque(false);
         setFocusable(true);
+        
+        LocalTime currentTime = LocalTime.now();    // 컴퓨터의 현재 시간 정보. 결과 : 16:24:02.408
+        System.out.println(currentTime);
+        
+        
+        //(int hour, int minute, int second, int nanoOfSecond)
+        LocalTime targetTime = LocalTime.of(15, 20, 0, 0);
+        
+        long endTime = Duration.between(currentTime, targetTime).toHours();
+        long endMinutes = Duration.between(currentTime, targetTime).toMinutes()%60;
+        long endSeconds = Duration.between(currentTime, targetTime).toSeconds()%60;
+        
+        System.out.println("남은시간 : "+ endTime +"시 "+ endMinutes+"분 "+endSeconds+"초");
     }
  
 //    public static void main(String[] args) {

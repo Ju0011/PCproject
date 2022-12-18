@@ -68,6 +68,7 @@ public class ClientFrame extends JFrame implements ActionListener {
 	JPanel p1 = new JPanel();
 	Socket socket;
 	WriteThread wt;
+	
 	public ClientFrame(Socket socket) {
 
 		super("관리자 채팅");

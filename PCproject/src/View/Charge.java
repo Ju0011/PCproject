@@ -76,7 +76,7 @@ public class Charge extends JFrame{
         panel.add(rd2);
  
         button.setBounds(700, 600, 250, 100);
-        button.setFont(new Font("배달의민족 한나", Font.BOLD, 35));
+        button.setFont(new Font("SanSerif", Font.BOLD, 35));
         panel.add(button);
         
         for (int i = 0; i < m_b.length; i++) {

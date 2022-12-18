@@ -11,6 +11,7 @@ public class SeatSet extends JFrame {
     JPanel panel =  new JPanel();
     //NullSeat[] seat = new NullSeat[16]; 배열 시도중
     
+    SeatBtn btn1 = new SeatBtn(0);
     
     NullSeat seat1 = new NullSeat(0);
     NullSeat seat2 = new NullSeat(1);
@@ -32,9 +33,14 @@ public class SeatSet extends JFrame {
         panel.setBounds(0, 0, 1400, 800);
         panel.setBackground(new Color(131, 220, 183));
         
+        
+        //좌석 버튼
         seat1.setBounds(50, 50, 99, 99);
         panel.add(seat1);
         
+        btn1.setBounds(150, 50, 99, 99);
+        panel.add(btn1);
+       
 
         
         add(panel);

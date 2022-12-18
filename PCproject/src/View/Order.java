@@ -17,7 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class Order extends JFrame implements ActionListener{
+public class Order extends JFrame{
 	
 	JPanel Panel = new JPanel();
 	JPanel southPanel = new JPanel();
@@ -81,8 +81,7 @@ public class Order extends JFrame implements ActionListener{
 			Panel.add(food[i]);
 			food[i].setPreferredSize(new Dimension(100, 100));
 			food[i].setBackground(Color.WHITE);
-			food[i].setFont(font);
-			food[i].addActionListener(this);            
+			food[i].setFont(font);           
            
 		}
 			
@@ -141,19 +140,14 @@ public class Order extends JFrame implements ActionListener{
 		add(txtArea, BorderLayout.CENTER);
         
 		setLocationRelativeTo(null);
-		setVisible(true);
 		setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		dispose(); //현재 창만 닫기
 	}
 	
 	public static void main(String[] args) {
 		new Order();
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 }
