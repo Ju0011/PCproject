@@ -26,8 +26,7 @@ public class Order extends JFrame implements ActionListener{
 	JButton button3 = new JButton("닫기");
 	JButton[] food = new JButton[12];
 	int price[] = { 3000, 2500, 2000, 3000, 3000, 3000, 3000, 3000, 3500, 1000,1000,2000 };
-	String name[] = { "신라면", "진라면", "진라면(순한맛)", "너구리", "오징어 짬뽕", "비빔면", "짜파게티", "불닭", "참깨라면", "스프라이트","콜라","아메리카노" };
-	String info = "";
+	String name[] = { "신라면", "진라면", "진라면(순한맛)", "너구리", "오징어 짬뽕", "비빔면", "짜파게티", "불닭", "참깨라면", "스프라이트","콜라","아메리카노" };	
 	int[] count = new int[food.length];
 	
 	ImageIcon[] images = { 
@@ -89,14 +88,13 @@ public class Order extends JFrame implements ActionListener{
 			
         //음식 버튼
         for (int i = 0; i < name.length; i++) {
-        	
         	int j = i;
+        	
         	food[i].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    count[j]++;
-                    info = name[j];                   
-                    txtArea.append("\t\t" + info + "\t\t\t\t\t\t" + price[j] + "\t\t\t\t\t\t" + count[j] + "\t\t\t\t\t\t" + price[j] * count[j]
+                    count[j]++;                
+                    txtArea.append("\t\t" + name[j] + "\t\t\t\t\t\t" + price[j] + "\t\t\t\t\t\t" + count[j] + "\t\t\t\t\t\t" + price[j] * count[j]
                             + "원" + "\n");
                 }
             });
