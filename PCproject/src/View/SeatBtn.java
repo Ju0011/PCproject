@@ -37,7 +37,7 @@ public class SeatBtn extends JPanel{
         /*시간 설정*/
 		LocalTime currentTime = LocalTime.now();    // 컴퓨터의 현재 시간 정보        
         //(int hour, int minute, int second, int nanoOfSecond)
-        LocalTime targetTime = LocalTime.of(18, 30, 0, 0);
+        LocalTime targetTime = LocalTime.of(19, 30, 0, 0);
         
         long endTime = Duration.between(currentTime, targetTime).toHours();
         long endMinutes = Duration.between(currentTime, targetTime).toMinutes()%60;
@@ -71,12 +71,14 @@ public class SeatBtn extends JPanel{
 
 		seat.setBounds(0, 0, 130, 130);
 
-//		seat.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				charge.setVisible(true);
-//			}
-//		});
+		seat.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				new Charge();
+				
+			}
+		});
 
 		panel.add(seat);
 
@@ -84,11 +86,11 @@ public class SeatBtn extends JPanel{
 
 		// 제이레이어패널 - 패널간에 순서 지정가능
 		JLayeredPane panLayered = new JLayeredPane();
-		panLayered.setBounds(0, 0, 200, 200);
 		panLayered.setLayout(null);
+		panLayered.setBounds(0, 0, 200, 200);		
 		panLayered.setOpaque(false); // 배경색 죽이기
 		panLayered.add(seat); // 버튼
-		panLayered.add(panel, new Integer(1), 0); // 이미지 담을 패널
+		panLayered.add(panel, new Integer(1), 0);
 		add(panLayered);
 
 		setVisible(true);
@@ -96,9 +98,5 @@ public class SeatBtn extends JPanel{
 		setFocusable(true);
 	}
 	
-	public static void main(String[] args) {
-		SeatBtn menu = new SeatBtn(numSeat);
-		menu.charge = new Charge();
-		
-	}
+	
 }

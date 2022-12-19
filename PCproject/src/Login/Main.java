@@ -73,33 +73,34 @@ public class Main extends JFrame{
 			System.exit(0);
 		}
 		
+		Font font = new Font(Font.SANS_SERIF, Font.BOLD, 30);
 		
 		idL.setBounds(250, 350, 100, 80);
-		idL.setFont(txt.getFont().deriveFont(30.0f));
+		idL.setFont(font);
 		panel.add(idL);
 		
 		pwL.setBounds(250, 440, 300, 80);
-		pwL.setFont(txt.getFont().deriveFont(30.0f));
+		pwL.setFont(font);
 		panel.add(pwL);
 		
 		id.setBounds(380, 350, 300, 80);
-		id.setFont(txt.getFont().deriveFont(30.0f));
+		id.setFont(font);
 		panel.add(id);
 		
 		pw.setBounds(380, 440, 300, 80);
-		pw.setFont(txt.getFont().deriveFont(30.0f));
+		pw.setFont(font);
 		panel.add(pw);
 		
 		loginBtn.setBounds(700, 350, 200, 170);
-		loginBtn.setFont(txt.getFont().deriveFont(30.0f));
+		loginBtn.setFont(font);
 		panel.add(loginBtn);
 		
 		joinBtn.setBounds(250, 530, 320, 80);
-		joinBtn.setFont(txt.getFont().deriveFont(30.0f));
+		joinBtn.setFont(font);
 		panel.add(joinBtn);
 		
 		nonBtn.setBounds(580, 530, 320, 80);
-		nonBtn.setFont(txt.getFont().deriveFont(30.0f));
+		nonBtn.setFont(font);
 		panel.add(nonBtn);
 		
 		/* Button 이벤트 리스너 추가 */

@@ -57,14 +57,21 @@ public class Data {
 		return check;
 	}
     
-    boolean joinCheck(String _i, String _p) {
+    boolean joinCheck(String _i, String _pw, String _a, String _phone, String _n) {
     	boolean check = false;
     	
     	String id = _i;
-    	String pw = _p;
+    	String pw = _pw;
+    	String age = _a;
+    	String phone = _phone;
+    	String name = _n;
     		
     	try {
-    		String insertStr = "INSERT INTO member VALUES('" + id + "', '" + pw + "')";
+    		//String insertStr = "INSERT INTO member VALUES('" + id + "', '" + pw + "')";
+    		
+    		String insertStr =  " INSERT INTO member(id, password, age, phone, name) "
+ 	               +  " VALUES('" + id + "','" + pw + "','" + age + "','" + phone + "','" + name + "')";
+    		
     		stmt = con.createStatement();
     		stmt.executeUpdate(insertStr);
     			

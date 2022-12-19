@@ -11,6 +11,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import ChatServer.MultiChatServer;
+import ChatClient.*;
+
 
 
 public class Menu extends JFrame implements ActionListener{
@@ -58,10 +61,12 @@ public class Menu extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == orderbtn) {
-			dispose();
 			new Order();
 		}
 		else if(e.getSource() == chatbtn) {
+			new MultiChatServer();
+			new MultiChatClient();
+			new ClientFrame(null);
 			
 		}
 		

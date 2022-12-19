@@ -1,5 +1,6 @@
 package ChatClient;
 
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
 import java.awt.event.ActionEvent;
@@ -28,10 +29,6 @@ class Id extends JFrame implements ActionListener {
 	JButton btn = new JButton("입력");
 	WriteThread wt;
 	ClientFrame cf;
-
-	public Id() {
-		
-	}
 
 	public Id(WriteThread wt, ClientFrame cf) {
 
@@ -69,17 +66,18 @@ public class ClientFrame extends JFrame implements ActionListener {
 	Socket socket;
 	WriteThread wt;
 	
+	
 	public ClientFrame(Socket socket) {
-
+		
 		super("관리자 채팅");
 		this.socket = socket;
 		wt = new WriteThread(this);
 		new Id(wt, this);
-		add("Center", txtA);
+		add(txtA, BorderLayout.CENTER);
 		p1.add(txtF);
 		p1.add(btnTransfer);
-		p1.add(btnExit);
-		add("South", p1);
+		p1.add(btnExit);	
+		add(p1, BorderLayout.SOUTH);
 	
 		// 메세지를 전송하는 클래스 생성.
 		btnTransfer.addActionListener(this);
@@ -87,7 +85,6 @@ public class ClientFrame extends JFrame implements ActionListener {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setBounds(300, 300, 350, 300);
 		setVisible(false);
-
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -102,9 +99,6 @@ public class ClientFrame extends JFrame implements ActionListener {
 			txtF.setText("");
 		} else {
 			this.dispose();	//현재 프레임만 종료하기
-
 		}
-
 	}
-
 }

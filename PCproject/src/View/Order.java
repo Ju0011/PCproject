@@ -126,14 +126,10 @@ public class Order extends JFrame{
         //닫기버튼    
         button3.addActionListener(new ActionListener() {            
             @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+            public void actionPerformed(ActionEvent e) {            
                 dispose(); //현재 창만 닫기
             }
         });
-		
-		
-        
         add(Panel, BorderLayout.NORTH);
 		add(southPanel, BorderLayout.SOUTH);
 		add(txtArea, BorderLayout.CENTER);
