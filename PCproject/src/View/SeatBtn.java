@@ -16,7 +16,9 @@ import javax.swing.JTextField;
 
 public class SeatBtn extends JPanel{
 	JButton seat = new JButton();
-	private int numSeat;
+	private static int numSeat;
+	
+	public Charge charge;
 	
 	JLabel[] label = new JLabel[4];
 	
@@ -33,9 +35,7 @@ public class SeatBtn extends JPanel{
         
 		
         /*시간 설정*/
-		LocalTime currentTime = LocalTime.now();    // 컴퓨터의 현재 시간 정보
-        System.out.println(currentTime);
-        
+		LocalTime currentTime = LocalTime.now();    // 컴퓨터의 현재 시간 정보        
         //(int hour, int minute, int second, int nanoOfSecond)
         LocalTime targetTime = LocalTime.of(18, 30, 0, 0);
         
@@ -43,7 +43,6 @@ public class SeatBtn extends JPanel{
         long endMinutes = Duration.between(currentTime, targetTime).toMinutes()%60;
         long endSeconds = Duration.between(currentTime, targetTime).toSeconds()%60;
         
-        System.out.println("남은시간: "+ endTime +"시 "+ endMinutes+"분 "+endSeconds+"초");
         String time = "잔여시간: " + + endTime +"시간 "+ endMinutes+"분";
         
        
@@ -72,12 +71,12 @@ public class SeatBtn extends JPanel{
 
 		seat.setBounds(0, 0, 130, 130);
 
-		seat.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
+//		seat.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				charge.setVisible(true);
+//			}
+//		});
 
 		panel.add(seat);
 
@@ -96,5 +95,10 @@ public class SeatBtn extends JPanel{
 		setOpaque(false);
 		setFocusable(true);
 	}
-
+	
+	public static void main(String[] args) {
+		SeatBtn menu = new SeatBtn(numSeat);
+		menu.charge = new Charge();
+		
+	}
 }

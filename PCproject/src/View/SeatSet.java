@@ -1,12 +1,16 @@
 package View;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class SeatSet extends JFrame {
-    
+public class SeatSet extends JFrame implements MouseListener{
+	
     int x = 50, y = 50;
     JPanel panel =  new JPanel();
     
@@ -16,6 +20,7 @@ public class SeatSet extends JFrame {
     
     
     public SeatSet() {
+    	
         setLayout(null);        
         setTitle("좌석창");
         setSize(1400, 800);
@@ -32,12 +37,11 @@ public class SeatSet extends JFrame {
 		for (int i = 0; i < seat.length; i++) {
 			seat[i] = new SeatBtn(i);
 			seat[i].setBounds(x, y, 130, 130);
-			
+			seat[i].addMouseListener(this);
 			y += 150;
 			if(y > 500) {
 				x += 200; y = 50;
 			}
-			
 			
 			panel.add(seat[i]);
 		}
@@ -51,5 +55,48 @@ public class SeatSet extends JFrame {
 	public static void main(String[] args) throws Exception {
     	new SeatSet();
     }
+
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		if(e.getSource() == seat[0]) {
+			dispose();
+			new Charge();
+			System.out.println("클릭");
+		}
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		if(e.getSource() == seat[0]) {
+			dispose();
+			new Charge();
+			System.out.println("프레스");
+		}
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		if(e.getSource() == seat[0]) {
+			dispose();
+			new Charge();
+			System.out.println("릴리즈");
+		}
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
  
 }

@@ -46,9 +46,7 @@ public class Order extends JFrame{
 	
 	int sum = 0;
 	public Order() {
-		
-		
-		
+	
 		setSize(1400, 800);
 		setLocation(80, 20); // 패널 시작 지점
 		setTitle("주문화면");
@@ -130,6 +128,7 @@ public class Order extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
+                dispose(); //현재 창만 닫기
             }
         });
 		
@@ -138,10 +137,12 @@ public class Order extends JFrame{
         add(Panel, BorderLayout.NORTH);
 		add(southPanel, BorderLayout.SOUTH);
 		add(txtArea, BorderLayout.CENTER);
-        
+		
+		
+		setVisible(true);	
 		setLocationRelativeTo(null);
 		setResizable(false);
-		dispose(); //현재 창만 닫기
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 	}
 	
 	public static void main(String[] args) {

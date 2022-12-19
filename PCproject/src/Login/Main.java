@@ -25,7 +25,6 @@ public class Main extends JFrame{
 	BufferedImage img = null;	
 	Data data = null;
 	public Join join = null;
-	SeatSet seat = null;
 	
 	private JLabel txt;
 	private JPanel panel;
@@ -130,8 +129,8 @@ public class Main extends JFrame{
 			
 			/* 비회원 로그인 버튼 이벤트 */
 			if(b.getText().equals("비회원")) {
-				System.out.println("결제창 구현할 것");
-				System.exit(0);
+				dispose();
+				new SeatSet();
 			}
 			
 			/* 회원가입 버튼 이벤트 */
@@ -148,7 +147,9 @@ public class Main extends JFrame{
 				else if(uid != null && upass != null) {
 					if(data.logincheck(uid, upass)) {	//데이터베이스에 접속해 로그인 정보를 확인
 						JOptionPane.showMessageDialog(null, "로그인에 성공하였습니다");
-						seat.setVisible(true);
+						//seat.setVisible(true);
+						dispose();
+						new SeatSet();
 						
 					} else {
 						JOptionPane.showMessageDialog(null, "로그인에 실패하였습니다");
@@ -169,7 +170,7 @@ public class Main extends JFrame{
 		Main main = new Main();
 		main.data = new Data();
 		main.join = new Join(main);
-		main.seat = new SeatSet();
+		
 	}
 	
 }

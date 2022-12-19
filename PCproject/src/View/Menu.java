@@ -18,8 +18,6 @@ public class Menu extends JFrame implements ActionListener{
 	JButton orderbtn = new JButton("음식 주문");
 	JButton chatbtn = new JButton("관리자 채팅");
 	
-	public Order order;
-	
 	
 	public Menu() {
 		setSize(800, 600);
@@ -52,7 +50,7 @@ public class Menu extends JFrame implements ActionListener{
 		add(panel);
 		
 		setLocationRelativeTo(null);
-		setVisible(true);
+		setVisible(true);	
 		setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 	}
@@ -60,7 +58,8 @@ public class Menu extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == orderbtn) {
-			order.setVisible(true);
+			dispose();
+			new Order();
 		}
 		else if(e.getSource() == chatbtn) {
 			
@@ -70,7 +69,5 @@ public class Menu extends JFrame implements ActionListener{
 	
 	public static void main(String[] args) {
 		Menu menu = new Menu();
-		menu.order = new Order();
-		
 	}
 }

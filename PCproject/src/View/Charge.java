@@ -14,10 +14,12 @@ import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 public class Charge extends JFrame{
+	
 	JPanel panel = new JPanel();
 	
 	JPanel centerPanel = new JPanel();
@@ -126,6 +128,15 @@ public class Charge extends JFrame{
 			}
 		});
 		
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "충전이 완료되었습니다!");
+				dispose(); //현재 창만 닫기
+				new Menu();
+			}
+		});
+		
         MyPanel img_panel = new MyPanel();
 		img_panel.setLayout(null);
 		img_panel.setBounds(990, 0, 400, 900);
@@ -140,7 +151,7 @@ public class Charge extends JFrame{
 				
 		add(panel);
 		setVisible(true);
-		setResizable(false);
+		setResizable(false);	
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
                           
 	}
@@ -150,8 +161,9 @@ public class Charge extends JFrame{
             g.drawImage(img, 0, 0, null);
         }
 	}
-	
+
 	public static void main(String[] args) {
 		new Charge();
+
 	}
 }
