@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.Duration;
 import java.time.LocalTime;
+import java.util.Arrays;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,17 +15,21 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Login.Data;
+
 public class SeatBtn extends JPanel{
 	JButton seat = new JButton();
-	private static int numSeat;
-	
-	public Charge charge;
+	static int number;
 	
 	JLabel[] label = new JLabel[4];
 	
+	int chargeTime = Charge.getTime();
+			
+	String timeTest;
 	
 	public SeatBtn(int numSeat) {
-		this.numSeat = numSeat;
+		
+		number = numSeat;
 		setLayout(null);
 		Font font = new Font("SanSerif", Font.BOLD, 12);
 		
@@ -37,6 +42,8 @@ public class SeatBtn extends JPanel{
         /*시간 설정*/
 		LocalTime currentTime = LocalTime.now();    // 컴퓨터의 현재 시간 정보        
         //(int hour, int minute, int second, int nanoOfSecond)
+		
+		
         LocalTime targetTime = LocalTime.of(19, 30, 0, 0);
         
         long endTime = Duration.between(currentTime, targetTime).toHours();
@@ -45,15 +52,29 @@ public class SeatBtn extends JPanel{
         
         String time = "잔여시간: " + + endTime +"시간 "+ endMinutes+"분";
         
-       
-		
-
+        if(chargeTime != 0) {
+        	long hour = chargeTime/60;
+            long min = chargeTime/3600;
+            timeTest = "잔여시간: " + + hour +"시간 "+ min+"분";
+        }
+        
 		int labelY = 10;
+		
 		for (int i = 0; i < label.length; i++) {
 			if (i == 0)
 				label[i] = new JLabel((numSeat + 1) + "번 자리");
 			else if(i == 1) {
-				label[i] = new JLabel(time);
+				if (Charge.getname() == null)
+					label[i] = new JLabel("");
+				else
+					label[i] = new JLabel("사용자 : " + Charge.getname());
+			}
+			else if(i == 2) {
+				if(chargeTime != 0) {
+					label[i] = new JLabel("남은시간 :" + timeTest);
+				}
+				else label[i] = new JLabel("");
+				
 			}else {
 				label[i] = new JLabel("");
 			}
@@ -90,13 +111,15 @@ public class SeatBtn extends JPanel{
 		panLayered.setBounds(0, 0, 200, 200);		
 		panLayered.setOpaque(false); // 배경색 죽이기
 		panLayered.add(seat); // 버튼
-		panLayered.add(panel, new Integer(1), 0);
+		panLayered.add(panel, new Integer(1));
 		add(panLayered);
 
 		setVisible(true);
 		setOpaque(false);
 		setFocusable(true);
 	}
-	
-	
+	public static int getseatN() {
+		// getter 밖에서 값을 접근하도록 허용해주는 것
+		return number;
+	}
 }

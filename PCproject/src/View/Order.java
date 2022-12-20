@@ -105,7 +105,7 @@ public class Order extends JFrame{
             	JOptionPane.showMessageDialog(null, " 주문 완료되었습니다. \n이용해주셔서 감사합니다.", "주문 완료", JOptionPane.INFORMATION_MESSAGE);           	 
                 
                 for (int i = 0; i < food.length; i++) {
-                    food[i].setEnabled(true);                                      
+                	count[i] = 0;                                     
                     txtArea.setText("\t\t\t상품명\t\t\t\t\t\t단가\t\t\t\t\t\t수량\t\t\t\t\t\t합계\n");                   
                 }
             }
@@ -116,9 +116,8 @@ public class Order extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 for (int i = 0; i < food.length; i++) {
-                    food[i].setEnabled(true);                                     
+                	count[i] = 0;                                      
                     txtArea.setText("\t\t\t상품명\t\t\t\t\t\t단가\t\t\t\t\t\t수량\t\t\t\t\t\t합계\n");
- 
                 }
             }
         });

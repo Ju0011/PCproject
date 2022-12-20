@@ -21,13 +21,13 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Login.Login.ButtonListener;
+import View.SeatSet;
 
 public class LoginTest extends JFrame{
 	
 	BufferedImage img = null;
 
 	Data data = null;
-	public TestJoin join = null;
 	
 	private JLabel txt;
 	private JPanel panel;
@@ -143,7 +143,7 @@ public class LoginTest extends JFrame{
 			
 			/* 회원가입 버튼 이벤트 */
 			else if(b.getText().equals("회원가입")) {
-				join.setVisible(true);
+				new JoinTest();
 			}
 			
 			/* 로그인 버튼 이벤트 */
@@ -155,6 +155,8 @@ public class LoginTest extends JFrame{
 				else if(uid != null && upass != null) {
 					if(data.logincheck(uid, upass)) {	//데이터베이스에 접속해 로그인 정보를 확인
 						JOptionPane.showMessageDialog(null, "로그인에 성공하였습니다");
+						dispose();
+						new SeatSet();
 					} else {
 						JOptionPane.showMessageDialog(null, "로그인에 실패하였습니다");
 					}

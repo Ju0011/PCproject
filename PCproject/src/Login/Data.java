@@ -12,6 +12,11 @@ public class Data {
     private static final String URL = "jdbc:mysql://localhost:3306/pcproject?serverTimezone=UTC";//DBMS접속할 db명
     Statement stmt = null;
 
+    
+	static String id;
+	static String pw;
+	static int time;
+	
     public Data(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -34,8 +39,8 @@ public class Data {
     boolean logincheck(String _i, String _p) {
 		boolean check = false;
 		
-		String id = _i;
-		String pw = _p;
+		id = _i;
+		pw = _p;
 		
 		try {
 			String checkingStr = "SELECT password FROM member WHERE id='" + id + "'";
@@ -60,15 +65,14 @@ public class Data {
     boolean joinCheck(String _i, String _pw, String _a, String _phone, String _n) {
     	boolean check = false;
     	
-    	String id = _i;
-    	String pw = _pw;
+    	id = _i;
+    	pw = _pw;
     	String age = _a;
     	String phone = _phone;
     	String name = _n;
     		
     	try {
-    		//String insertStr = "INSERT INTO member VALUES('" + id + "', '" + pw + "')";
-    		
+  
     		String insertStr =  " INSERT INTO member(id, password, age, phone, name) "
  	               +  " VALUES('" + id + "','" + pw + "','" + age + "','" + phone + "','" + name + "')";
     		
@@ -84,4 +88,39 @@ public class Data {
     		
     	return check;
     }
+    
+    public boolean ChargeCheck(String _i, int _time) {
+    	boolean check = false;
+    	
+    	id = _i;
+    	time = _time;
+    		
+    	try {	
+    		String insertStr = "UPDATE member SET time = '" + time + "' WHERE id = '" + id + "'";
+    		
+    		stmt = con.createStatement();
+    		stmt.executeUpdate(insertStr);
+    			
+    		check = true;
+    		System.out.println("충전 성공");
+    	} catch(Exception e) {
+    		check = false;
+    		System.out.println("충전 실패 > " + e.toString());
+    	}
+    		
+    	return check;
+    }
+    
+    public static String getID() {
+		// getter 밖에서 값을 접근하도록 허용해주는 것
+		return id;
+	}
+	public static String getPass() {
+		// getter 밖에서 값을 접근하도록 허용해주는 것
+		return pw;
+	}
+	public static int getTime() {
+		// getter 밖에서 값을 접근하도록 허용해주는 것
+		return time;
+	}
 }

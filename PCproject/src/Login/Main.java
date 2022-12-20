@@ -42,6 +42,7 @@ public class Main extends JFrame{
 	JButton joinBtn = new JButton("회원가입");
 	JButton nonBtn = new JButton("비회원");
 	
+
 	
 	public Main() {
 		setTitle("SK PC");
@@ -124,6 +125,7 @@ public class Main extends JFrame{
 			/* TextField에 입력된 아이디와 비밀번호를 변수에 초기화 */
 			String uid = id.getText();
 			String upass = "";
+			
 			for(int i=0; i<pw.getPassword().length; i++) {
 				upass = upass + pw.getPassword()[i];
 			}
@@ -148,7 +150,6 @@ public class Main extends JFrame{
 				else if(uid != null && upass != null) {
 					if(data.logincheck(uid, upass)) {	//데이터베이스에 접속해 로그인 정보를 확인
 						JOptionPane.showMessageDialog(null, "로그인에 성공하였습니다");
-						//seat.setVisible(true);
 						dispose();
 						new SeatSet();
 						
@@ -174,4 +175,6 @@ public class Main extends JFrame{
 		
 	}
 	
+	
+
 }

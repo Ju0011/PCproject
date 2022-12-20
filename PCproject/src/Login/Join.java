@@ -1,6 +1,9 @@
 package Login;
 
 import javax.swing.*;
+
+import View.SeatSet;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -134,6 +137,7 @@ public class Join extends JFrame {
 						System.out.println("회원가입 성공");
 						JOptionPane.showMessageDialog(null, "회원가입에 성공하였습니다");
 						dispose();
+						new SeatSet();
 						
 					} else {
 						System.out.println("회원가입 실패");
@@ -145,4 +149,5 @@ public class Join extends JFrame {
 			}
 		}
 	}
+
 }

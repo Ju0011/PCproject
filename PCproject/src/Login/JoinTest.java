@@ -4,10 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class TestJoin extends JFrame {
+public class JoinTest extends JFrame {
 	/* Panel */
 	JPanel panel = new JPanel();
-	Data data = null;
+	
 	
 	/* Label */
 	JLabel idL = new JLabel("아이디");
@@ -28,10 +28,10 @@ public class TestJoin extends JFrame {
 	JButton cancelBtn = new JButton("가입취소");
 	JButton checkBtn = new JButton("중복확인");
 	
+	Data data = null;
 	
+	JoinTest() {
 	
-	TestJoin() {	
-		
 		setTitle("회원가입");
 		
 		/* Panel 추가 */
@@ -39,41 +39,50 @@ public class TestJoin extends JFrame {
 		
 		panel.setLayout(null);
 		
+		Font font = new Font(Font.SANS_SERIF, Font.BOLD, 20);
+		
 		idL.setBounds(80, 30, 100, 40);
-		idL.setFont(idL.getFont().deriveFont(20.0f));
+		idL.setFont(font);
 		id.setBounds(150, 30, 200, 40);
+		id.setFont(font);
 		panel.add(idL);
 		panel.add(id);
 		
 		
 		pwL.setBounds(60, 80, 100, 40);
-		pwL.setFont(idL.getFont().deriveFont(20.0f));
+		pwL.setFont(font);
 		pw.setBounds(150, 80, 200, 40);
+		pw.setFont(font);
 		panel.add(pwL);
 		panel.add(pw);
 		
 		
 		ageL.setBounds(100, 130, 100, 40);
-		ageL.setFont(idL.getFont().deriveFont(20.0f));
+		ageL.setFont(font);
 		age.setBounds(150, 130, 200, 40);
+		age.setFont(font);
 		panel.add(ageL);
 		panel.add(age);
 		
 		phoneL.setBounds(80, 180, 100, 40);
-		phoneL.setFont(idL.getFont().deriveFont(20.0f));
+		phoneL.setFont(font);
 		phone.setBounds(150, 180, 200, 40);
+		phone.setFont(font);
 		panel.add(phoneL);
 		panel.add(phone);
 		
 		
 		nameL.setBounds(100, 230, 100, 40);
-		nameL.setFont(idL.getFont().deriveFont(20.0f));
+		nameL.setFont(font);
 		name.setBounds(150, 230, 200, 40);
+		name.setFont(font);
 		panel.add(nameL);
 		panel.add(name);
 		
 		cancelBtn.setBounds(70, 400, 150, 50);
+		cancelBtn.setFont(font);
 		joinBtn.setBounds(280, 400, 150, 50);
+		joinBtn.setFont(font);
 		panel.add(cancelBtn);
 		panel.add(joinBtn);
 		
@@ -86,6 +95,7 @@ public class TestJoin extends JFrame {
 		setSize(500, 500);
 		setLocationRelativeTo(null);
 		setResizable(false);
+		setVisible(true);
 	}
 	
 	/* Button 이벤트 리스너 */
@@ -97,6 +107,7 @@ public class TestJoin extends JFrame {
 			/* TextField에 입력된 회원 정보들을 변수에 초기화 */
 			String uid = id.getText();
 			String upass = "";
+			
 			for(int i=0; i<pw.getPassword().length; i++) {
 				upass = upass + pw.getPassword()[i];
 			}
@@ -118,7 +129,7 @@ public class TestJoin extends JFrame {
 				}
 				
 				else {
-					if(data.joinCheck(uid, upass)) {
+					if(data.joinCheck(uid, upass, uage, uphone, uname)) {
 						System.out.println("회원가입 성공");
 						JOptionPane.showMessageDialog(null, "회원가입에 성공하였습니다");
 						dispose();
@@ -132,5 +143,10 @@ public class TestJoin extends JFrame {
 				}
 			}
 		}
+	}
+	
+	public static void main(String[] args) {
+		JoinTest join = new JoinTest();
+		join.data = new Data();
 	}
 }
