@@ -57,7 +57,7 @@ public class Menu extends JFrame implements ActionListener{
 					label[i] = new JLabel("사용자 아이디 : " + Data.getID());
 
 			} else if (i == 2) {
-				label[i] = new JLabel("잔여시간 : " + String.valueOf(Charge.getTime()) + " 분");
+				label[i] = new JLabel("잔여시간 : " + (Data.getTime()+Charge.getTime()) + " 분");
 			} else {
 				label[i] = new JLabel("");
 			}

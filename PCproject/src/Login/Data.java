@@ -6,16 +6,18 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class Data {
-	private Connection con; //DB 커넥션 연결 객체
+	private static Connection con; //DB 커넥션 연결 객체
     private static final String USERNAME = "root";//DBMS접속 시 아이디
     private static final String PASSWORD = "8103";//DBMS접속 시 비밀번호
     private static final String URL = "jdbc:mysql://localhost:3306/pcproject?serverTimezone=UTC";//DBMS접속할 db명
-    Statement stmt = null;
+    static Statement stmt = null;
 
     
 	static String id;
 	static String pw;
 	static int time;
+	static int checkingtime;
+	
 	
     public Data(){
         try {
@@ -96,7 +98,17 @@ public class Data {
     	time = _time;
     		
     	try {	
-    		String insertStr = "UPDATE member SET time = '" + time + "' WHERE id = '" + id + "'";
+    		
+    		String checkingStr = "SELECT time FROM member WHERE id = '" + id + "'";
+			stmt = con.createStatement();
+			ResultSet result = stmt.executeQuery(checkingStr);
+
+			while (result.next()) {
+				checkingtime = result.getInt(1);
+			}
+			
+    		String insertStr = "UPDATE member SET time = '" + (checkingtime+time) + "' WHERE id = '" + id + "'";
+
     		
     		stmt = con.createStatement();
     		stmt.executeUpdate(insertStr);
@@ -105,12 +117,30 @@ public class Data {
     		System.out.println("충전 성공");
     	} catch(Exception e) {
     		check = false;
-    		System.out.println("충전 실패 > " + e.toString());
-    	}
-    		
-    	return check;
-    }
-    
+			System.out.println("충전 실패 > " + e.toString());
+		}
+
+		return check;
+	}
+
+	public static int TimeCheck(String _i) {
+		id = _i;
+		try {
+			String checkingStr = "SELECT time FROM member WHERE id = '" + id + "'";
+			stmt = con.createStatement();
+			ResultSet result = stmt.executeQuery(checkingStr);
+
+			while (result.next()) {
+				checkingtime = result.getInt(1);
+			}
+
+		} catch (Exception e) {
+
+			System.out.println("검색 실패 > " + e.toString());
+		}
+		return checkingtime;
+	}
+
     public static String getID() {
 		// getter 밖에서 값을 접근하도록 허용해주는 것
 		return id;
@@ -121,6 +151,6 @@ public class Data {
 	}
 	public static int getTime() {
 		// getter 밖에서 값을 접근하도록 허용해주는 것
-		return time;
+		return checkingtime;
 	}
 }

@@ -23,9 +23,14 @@ public class SeatBtn extends JPanel{
 	
 	JLabel[] label = new JLabel[4];
 	
-	int chargeTime = Charge.getTime();
-			
+	int chargeTime = Data.getTime();
+	
+	Data data = new Data();
 	String timeTest;
+	
+	boolean touch = false;
+	
+	int time;
 	
 	public SeatBtn(int numSeat) {
 		
@@ -38,25 +43,16 @@ public class SeatBtn extends JPanel{
         panel.setLayout(null);
         panel.setBounds(0, 0, 130, 130);
         
-		
-        /*시간 설정*/
-		LocalTime currentTime = LocalTime.now();    // 컴퓨터의 현재 시간 정보        
-        //(int hour, int minute, int second, int nanoOfSecond)
-		
-		
-        LocalTime targetTime = LocalTime.of(19, 30, 0, 0);
-        
-        long endTime = Duration.between(currentTime, targetTime).toHours();
-        long endMinutes = Duration.between(currentTime, targetTime).toMinutes()%60;
-        long endSeconds = Duration.between(currentTime, targetTime).toSeconds()%60;
-        
-        String time = "잔여시간: " + + endTime +"시간 "+ endMinutes+"분";
         
         if(chargeTime != 0) {
         	long hour = chargeTime/60;
             long min = chargeTime/3600;
-            timeTest = "잔여시간: " + + hour +"시간 "+ min+"분";
+            timeTest = "잔여시간: " + hour +"시간 "+ min+"분";
         }
+        
+        String id = Data.getID();
+        time = Data.TimeCheck(id);
+        
         
 		int labelY = 10;
 		
@@ -64,14 +60,14 @@ public class SeatBtn extends JPanel{
 			if (i == 0)
 				label[i] = new JLabel((numSeat + 1) + "번 자리");
 			else if(i == 1) {
-				if (Charge.getname() == null)
+				if (touch == false)
 					label[i] = new JLabel("");
 				else
-					label[i] = new JLabel("사용자 : " + Charge.getname());
+					label[i] = new JLabel("사용자 : " + Data.getID());
 			}
 			else if(i == 2) {
-				if(chargeTime != 0) {
-					label[i] = new JLabel("남은시간 :" + timeTest);
+				if(touch) {
+					label[i] = new JLabel("남은시간 :" + time);
 				}
 				else label[i] = new JLabel("");
 				
@@ -95,9 +91,12 @@ public class SeatBtn extends JPanel{
 		seat.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				String id = Data.getID();
+				time = Data.TimeCheck(id);
+				touch = true;
 				
+				new SeatSet();
 				new Charge();
-				
 			}
 		});
 

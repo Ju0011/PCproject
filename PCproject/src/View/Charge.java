@@ -15,12 +15,12 @@ import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 import Login.Data;
-import Login.Main;
 
 public class Charge extends JFrame implements ActionListener{
 	
@@ -29,6 +29,7 @@ public class Charge extends JFrame implements ActionListener{
 	JPanel centerPanel = new JPanel();
 	JPanel centerPanel_2 = new JPanel();
 	
+	JLabel label;
 	TextArea txtArea = new TextArea();
 	
 	BufferedImage img = null;
@@ -74,6 +75,7 @@ public class Charge extends JFrame implements ActionListener{
         
         Font font = new Font("SanSerif", Font.BOLD, 30);	//라디오 버튼 폰트
         Font font_2 = new Font("SanSerif", Font.BOLD, 20); //요금 버튼 폰트
+        Font font_3 = new Font("SanSerif", Font.BOLD, 25);	//버튼 폰트
         
         rd1.setBounds(200, 50, 200, 100);
         rd2.setBounds(500, 50, 200, 100);
@@ -95,17 +97,22 @@ public class Charge extends JFrame implements ActionListener{
 		panel.add(rd2);
 
 		chargebtn.setBounds(830, 600, 150, 75);
-		chargebtn.setFont(new Font("SanSerif", Font.BOLD, 25));
+		chargebtn.setFont(font_3);
 		panel.add(chargebtn);
 
 		reset.setBounds(670, 600, 150, 75);
-		reset.setFont(new Font("SanSerif", Font.BOLD, 25));
+		reset.setFont(font_3);
 		panel.add(reset);
 		
 		close.setBounds(510, 600, 150, 75);
-		close.setFont(new Font("SanSerif", Font.BOLD, 25));
+		close.setFont(font_3);
 		panel.add(close);
 
+		label = new JLabel("잔여 시간 : " + Data.getTime());
+		label.setBounds(750, 100, 250, 100);
+		label.setFont(font);
+		panel.add(label);
+		
 		txtArea.setBackground(Color.white);
 		txtArea.setEditable(false);	//편집 불가능
         txtArea.setBounds(720, 200, 250, 350);
@@ -184,7 +191,7 @@ public class Charge extends JFrame implements ActionListener{
 		close.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();		
+				dispose();
 				new Menu();
 			}
 		});

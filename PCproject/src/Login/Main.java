@@ -56,7 +56,7 @@ public class Main extends JFrame{
 		add(panel);
 		
 		txt = new JLabel("어서오세요. SK PC방 입니다!");
-		txt.setFont(new Font("배달의민족 한나", 1, 40));
+		txt.setFont(new Font("SanSerif", 1, 40));
 		txt.setBounds(300, 30, 800, 300);
 		panel.add(txt);
 		
