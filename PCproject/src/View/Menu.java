@@ -5,19 +5,19 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.net.Socket;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import ChatClient.ClientFrame;
-import ChatClient.MultiChatClient;
-import ChatServer.MultiChatServer;
 import Login.Data;
-import TestClientChat.ClientGUI;
-import TestServerChat.ServerGUI;
+import Test.Client.*;
+import Test.Server.*;
+import TestClientChat.ClientTest;
+import TestServerChat.*;
+import TestServerChat.ServerTest;
+
 
 
 
@@ -30,7 +30,7 @@ public class Menu extends JFrame implements ActionListener{
 	
 	JLabel[] label = new JLabel[3];
 	
-	
+
 	public Menu() {
 		setSize(800, 600);
 		setLocation(80, 20); // 패널 시작 지점
@@ -72,6 +72,7 @@ public class Menu extends JFrame implements ActionListener{
 			Northpanel.add(label[i]);
 		}
 		
+		
 
 		panel.add(Northpanel);
 		panel.setLayout(null);
@@ -87,24 +88,18 @@ public class Menu extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		if(e.getSource() == orderbtn) {
 			new Order();
 		}
 		
 		else if(e.getSource() == chatbtn) {
-			try {
-				new ServerGUI();
-				new ClientGUI();
-				
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
 			
 		}
 		
 	}
 	
 	public static void main(String[] args) {
-		new Menu();
+		Menu m = new Menu();
 	}
 }

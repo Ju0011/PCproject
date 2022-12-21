@@ -7,27 +7,28 @@ import java.util.Scanner;
 
 public class SenderThread extends Thread{
 	Socket socket;
-	
+
 	Scanner scanner = new Scanner(System.in);
 
-	  public SenderThread(Socket socket){
-	    this.socket = socket;
-	  }
+	public SenderThread(Socket socket) {
+		this.socket = socket;
+	}
 
-	  @Override
-	  public void run() {
-	    try {
-	      DataOutputStream sendWriter = new DataOutputStream(socket.getOutputStream());
-	      String sendString;
-	      while(true){
-	        sendString =  scanner.nextLine();
-	        sendWriter.writeUTF(sendString);
-	        sendWriter.flush();
-	      }
-	    }catch (IOException e){
-	      e.printStackTrace();
-	    }
+	@Override
+	public void run() {
+		try {
+			System.out.println("클라이언트 보내는 서버");
+			DataOutputStream sendWriter = new DataOutputStream(socket.getOutputStream());
+			String sendString;
+			while (true) {
+				sendString = scanner.nextLine();
+				sendWriter.writeUTF(sendString);
+				sendWriter.flush();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-	  }
+	}
 
 }

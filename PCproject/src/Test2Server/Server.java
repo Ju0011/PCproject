@@ -6,7 +6,7 @@ import java.net.Socket;
 
 public class Server {
 	public static void main(String[] args) throws IOException {
-	    ServerSocket socketServer = new ServerSocket(6824);
+	    ServerSocket socketServer = new ServerSocket(2874);
 	    System.out.println("ss>>>" + socketServer);
         System.out.println("채팅 서버 가동중...");
 

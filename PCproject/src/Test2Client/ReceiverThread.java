@@ -18,6 +18,7 @@ public class ReceiverThread extends Thread{
 	    try {
 	      DataInputStream tmpbuf = new DataInputStream(socket.getInputStream());
 	      while (true) {
+	    	 System.out.println("클라이언트 받는 서버");
 	        receiveString = tmpbuf.readUTF();
 	        if (receiveString == null) {
 	          System.out.println("상대방 연결이 종료되었습니다.");

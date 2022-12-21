@@ -16,9 +16,10 @@ public class ReceiverThread extends Thread{
 	  @Override
 	  public void run() {
 	    try {
-	      DataInputStream tmpbuf = new DataInputStream(socket.getInputStream());
+	    	System.out.println("서버 받는 서버");
+	      DataInputStream tmpbuf = new DataInputStream(socket.getInputStream());	// 소켓 내용 읽어오기
 	      while (true) {
-	        receiveString = tmpbuf.readUTF();
+	        receiveString = tmpbuf.readUTF();	 // 소켓 내용의 문자열을 readUTF 이용하여 읽기
 	        if (receiveString == null) {
 	          System.out.println("상대방 연결이 종료되었습니다.");
 	        } else {
