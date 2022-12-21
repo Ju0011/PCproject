@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.Socket;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,6 +16,8 @@ import ChatClient.ClientFrame;
 import ChatClient.MultiChatClient;
 import ChatServer.MultiChatServer;
 import Login.Data;
+import TestClientChat.ClientGUI;
+import TestServerChat.ServerGUI;
 
 
 
@@ -86,16 +90,21 @@ public class Menu extends JFrame implements ActionListener{
 		if(e.getSource() == orderbtn) {
 			new Order();
 		}
+		
 		else if(e.getSource() == chatbtn) {
-			new MultiChatServer();
-			new MultiChatClient();
-			new ClientFrame(null);
+			try {
+				new ServerGUI();
+				new ClientGUI();
+				
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 			
 		}
 		
 	}
 	
 	public static void main(String[] args) {
-		Menu menu = new Menu();
+		new Menu();
 	}
 }

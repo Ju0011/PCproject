@@ -48,7 +48,7 @@ public class SeatSet extends JFrame{
 		add(panel);
 		
 		
-		setVisible(true);	//로그인 창에서 뜨지 않기 위해
+		setVisible(true);	
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}

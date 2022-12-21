@@ -1,12 +1,12 @@
-package TestServerChat;
+package Test2Server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-class Server {
+public class Server {
 	public static void main(String[] args) throws IOException {
-	    ServerSocket socketServer = new ServerSocket(8824);
+	    ServerSocket socketServer = new ServerSocket(6824);
 	    System.out.println("ss>>>" + socketServer);
         System.out.println("채팅 서버 가동중...");
 

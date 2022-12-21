@@ -5,26 +5,28 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class SenderThread extends Thread{
+public class ServerSenderThread extends Thread{
 	Socket socket;
-	  private Scanner scanner = new Scanner(System.in);
+	  static String sendString;
+	  
+		public ServerSenderThread(Socket socket) {
+			this.socket = socket;
+		}
 
-	  public SenderThread(Socket socket){
-	    this.socket = socket;
-	  }
-
-	  @Override
+		@Override
 	  public void run() {
 	    try {
 	      DataOutputStream sendWriter = new DataOutputStream(socket.getOutputStream());
-	      String sendString;
+	      
 	      while(true){
-	        sendString = scanner.nextLine();
+	        sendString = "[관리자] : "+ServerGUI.ServerTxt();
 	        sendWriter.writeUTF(sendString);
 	        sendWriter.flush();
 	      }
 	    }catch (IOException e){
-	      e.printStackTrace();
+	    	System.out.println(e.getMessage());
 	    }
 	  }
+	
+
 }

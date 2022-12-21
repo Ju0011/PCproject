@@ -141,16 +141,13 @@ public class Data {
 		return checkingtime;
 	}
 
-    public static String getID() {
-		// getter 밖에서 값을 접근하도록 허용해주는 것
+    public static String getID() {		
 		return id;
 	}
-	public static String getPass() {
-		// getter 밖에서 값을 접근하도록 허용해주는 것
+	public static String getPass() {		
 		return pw;
 	}
-	public static int getTime() {
-		// getter 밖에서 값을 접근하도록 허용해주는 것
+	public static int getTime() {		
 		return checkingtime;
 	}
 }

@@ -12,6 +12,8 @@ import java.net.InetAddress;
 
 import java.net.Socket;
 
+import View.SeatBtn;
+
 // 키보드로 전송문자열 입력받아 서버로 전송하는 스레드
 
 class WriteThread {
@@ -38,10 +40,10 @@ class WriteThread {
 				String ip = iaddr.getHostAddress();
 				getId();
 
-				str = "[" + id + "] 님 로그인";
+				str = "[" + id + "] 번 자리 로그인";
 
 			} else {
-				str = "[" + id + "] " + cf.txtF.getText();
+				str = "[" + id + "번 자리] " + cf.txtF.getText();
 			}
 
 			// 입력받은 문자열 서버로 보내기
@@ -62,7 +64,8 @@ class WriteThread {
 	public void getId() {
 		id = Id.getId();
 	}
-
+	
+	
 }
 
 //서버가 보내온 문자열을 받는 스레드
@@ -108,7 +111,7 @@ public class MultiChatClient {
 		Socket socket = null;
 		ClientFrame cf;
 		try {
-			socket = new Socket("192.168.0.32", 3810);
+			socket = new Socket("192.168.0.32", 4010);
 			System.out.println("연결성공!");
 			cf = new ClientFrame(socket);
 			new ReadThread(socket, cf).start();

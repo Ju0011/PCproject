@@ -23,6 +23,8 @@ import javax.swing.JTextArea;
 
 import javax.swing.JTextField;
 
+import View.SeatBtn;
+
 class Id extends JFrame implements ActionListener {
 
 	static JTextField tf = new JTextField(8);
@@ -89,6 +91,7 @@ public class ClientFrame extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		String id = Id.getId();
+		
 		if (e.getSource() == btnTransfer) {// 전송버튼 눌렀을 경우
 			// 메세지 입력없이 전송버튼만 눌렀을 경우
 			if (txtF.getText().equals("")) {

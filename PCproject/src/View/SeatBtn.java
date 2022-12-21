@@ -19,6 +19,7 @@ import Login.Data;
 
 public class SeatBtn extends JPanel{
 	JButton seat = new JButton();
+	
 	static int number;
 	
 	JLabel[] label = new JLabel[4];
@@ -55,21 +56,20 @@ public class SeatBtn extends JPanel{
         
         
 		int labelY = 10;
-		
 		for (int i = 0; i < label.length; i++) {
 			if (i == 0)
 				label[i] = new JLabel((numSeat + 1) + "번 자리");
-			else if(i == 1) {
-				if (touch == false)
-					label[i] = new JLabel("");
-				else
-					label[i] = new JLabel("사용자 : " + Data.getID());
-			}
-			else if(i == 2) {
-				if(touch) {
-					label[i] = new JLabel("남은시간 :" + time);
+			else if (i == 1) {
+				if (touch == false) {
+					label[i] = new JLabel("");					
+				} else {
+					label[i] = new JLabel("사용자 : " + Data.getID());					
 				}
-				else label[i] = new JLabel("");
+			} else if (i == 2) {
+				if (touch) {
+					label[i] = new JLabel("남은시간 :" + time);
+				} else
+					label[i] = new JLabel("");
 				
 			}else {
 				label[i] = new JLabel("");
@@ -84,7 +84,10 @@ public class SeatBtn extends JPanel{
 		}
 
 		seat = new JButton();
-		seat.setBackground(Color.BLACK);
+		
+		if(touch) {
+			seat.setBackground(Color.green);
+		}else seat.setBackground(Color.BLACK);
 
 		seat.setBounds(0, 0, 130, 130);
 
@@ -94,8 +97,6 @@ public class SeatBtn extends JPanel{
 				String id = Data.getID();
 				time = Data.TimeCheck(id);
 				touch = true;
-				
-				new SeatSet();
 				new Charge();
 			}
 		});
@@ -118,7 +119,10 @@ public class SeatBtn extends JPanel{
 		setFocusable(true);
 	}
 	public static int getseatN() {
-		// getter 밖에서 값을 접근하도록 허용해주는 것
+		
 		return number;
+	}
+	public static void seat() {
+		
 	}
 }

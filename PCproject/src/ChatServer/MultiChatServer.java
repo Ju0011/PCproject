@@ -8,7 +8,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Vector;
 
-//서버 -> 클라이언트 -> 프레임
+//서버 -> 클라이언트 /-> 프레임
 
 //클라이언트로 부터 전송된 문자열을 받아서 다른 클라이언트에게 문자열을 보내주는 스레드
 class ServerThread extends Thread {
@@ -81,7 +81,7 @@ public class MultiChatServer {
 		Vector<Socket> vec = new Vector<Socket>();
 
 		try {
-			server = new ServerSocket(3810);
+			server = new ServerSocket(4010);
 			while (true) {
 				System.out.println("접속대기중..");
 				socket = server.accept();

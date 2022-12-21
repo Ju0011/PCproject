@@ -175,7 +175,8 @@ public class Charge extends JFrame implements ActionListener{
 				if(data.ChargeCheck(name, ChargeTime)) 
 				{
 					JOptionPane.showMessageDialog(null, "충전이 완료되었습니다!");				
-					dispose(); //현재 창만 닫기
+					dispose();
+					new SeatSet();
 					new Menu();
 				}
 			}
@@ -192,6 +193,7 @@ public class Charge extends JFrame implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				new SeatSet();
 				new Menu();
 			}
 		});
