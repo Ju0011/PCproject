@@ -122,7 +122,6 @@ public class Main extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			JButton b = (JButton)e.getSource();
 			
-			/* TextField에 입력된 아이디와 비밀번호를 변수에 초기화 */
 			String uid = id.getText();
 			String upass = "";
 			
@@ -130,18 +129,15 @@ public class Main extends JFrame{
 				upass = upass + pw.getPassword()[i];
 			}
 			
-			/* 비회원 로그인 버튼 이벤트 */
 			if(b.getText().equals("비회원")) {
 				dispose();
 				new SeatSet();
 			}
 			
-			/* 회원가입 버튼 이벤트 */
 			else if(b.getText().equals("회원가입")) {
 				join.setVisible(true);
 			}
 			
-			/* 로그인 버튼 이벤트 */
 			else if(b.getText().equals("로그인")) {
 				if(uid.equals("") || upass.equals("")) {
 					JOptionPane.showMessageDialog(null, "아이디와 비밀번호 모두 입력해주세요", "로그인 실패", JOptionPane.ERROR_MESSAGE);

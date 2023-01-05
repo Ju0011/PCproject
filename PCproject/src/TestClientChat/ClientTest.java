@@ -60,7 +60,7 @@ class ClientFrame extends JFrame implements ActionListener {
 		Socket socket = null;
 
 		try {
-			socket = new Socket("192.168.0.32", 1712);
+			socket = new Socket("192.168.123.133", 1712);
 			out = new PrintWriter(socket.getOutputStream(), true);
 			in = new BufferedReader(new InputStreamReader(
 					socket.getInputStream()));

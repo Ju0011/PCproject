@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import Login.Data;
 import Test.Client.*;
 import Test.Server.*;
-import TestClientChat.ClientTest;
+import TestClientChat.*;
 import TestServerChat.*;
 import TestServerChat.ServerTest;
 
@@ -30,6 +30,8 @@ public class Menu extends JFrame implements ActionListener{
 	
 	JLabel[] label = new JLabel[3];
 	
+	ClientTest CT;
+	ServerTest ST;
 
 	public Menu() {
 		setSize(800, 600);
@@ -94,12 +96,15 @@ public class Menu extends JFrame implements ActionListener{
 		}
 		
 		else if(e.getSource() == chatbtn) {
-			
+			new ServerTest();
+			new ClientTest();
+		
 		}
 		
 	}
 	
 	public static void main(String[] args) {
 		Menu m = new Menu();
+		
 	}
 }

@@ -20,7 +20,7 @@ public class ClientBackground {
 
 	public void connet() {
 		try {
-			socket = new Socket("192.168.0.32", 7718);
+			socket = new Socket("192.168.123.133", 7718);
 			System.out.println("서버 연결성공");
 			
 			out = new DataOutputStream(socket.getOutputStream());

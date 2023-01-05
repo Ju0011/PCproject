@@ -39,8 +39,7 @@ public class Join extends JFrame {
 		
 		setTitle("회원가입");
 		
-		/* Panel 추가 */
-		setContentPane(panel);
+		add(panel);
 		
 		panel.setLayout(null);
 		
@@ -91,7 +90,7 @@ public class Join extends JFrame {
 		panel.add(cancelBtn);
 		panel.add(joinBtn);
 		
-		/* Button 이벤트 리스너 추가 */
+		
 		ButtonListener bl = new ButtonListener();
 		
 		cancelBtn.addActionListener(bl);
@@ -102,13 +101,11 @@ public class Join extends JFrame {
 		setResizable(false);
 	}
 	
-	/* Button 이벤트 리스너 */
 	class ButtonListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			JButton b = (JButton)e.getSource();
 			
-			/* TextField에 입력된 회원 정보들을 변수에 초기화 */
 			String uid = id.getText();
 			String upass = "";
 			
@@ -120,12 +117,12 @@ public class Join extends JFrame {
 			String uphone = phone.getText();
 			String uname = name.getText();
 			
-			/* 가입취소 버튼 이벤트 */
+			
 			if(b.getText().equals("가입취소")) {
 				dispose();
 			}
 			
-			/* 가입하기 버튼 이벤트 */
+			
 			else if(b.getText().equals("가입하기")) {
 				if(uid.equals("") || upass.equals("") || uage.equals("") || uphone.equals("") || uname.equals("")) {
 					JOptionPane.showMessageDialog(null, "모든 정보를 입력해주세요", "회원가입 실패", JOptionPane.ERROR_MESSAGE);
